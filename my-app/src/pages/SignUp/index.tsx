@@ -96,7 +96,7 @@ const SignUp = () =>{
             color="white"
             >
                 <Flex
-                w={["100%","100%","90%","60%"]} 
+                w={["100%","100%","80%","70%"]} 
                 justifyContent="center" 
                 flexDirection={["column","column","row","row"]} 
                 >
@@ -110,7 +110,7 @@ const SignUp = () =>{
                     ):
                     (
                         <>
-                            <GoBackButton top="10" left="75vw"/>
+                            <GoBackButton top="10" left="4vw"/>
                             <SignUpInfo/>
                             <SignUpForm errors={errors} handleSignUp={handleSubmit(handleSingUp)} loading={loading} register={register}/>
                         </>
