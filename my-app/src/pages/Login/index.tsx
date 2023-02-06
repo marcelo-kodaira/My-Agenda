@@ -7,6 +7,7 @@ import { useAuth } from "../../contexts/AuthContext"
 import LoginInfo from "./LoginInfo"
 import LoginForm from "./LoginForm"
 import ModalError from "../../components/Modal/ModalError"
+import { theme } from "../../styles/theme"
 
 const signInSchema = yup.object().shape({
     email: yup.string().required('Email obrigatório').email('Email inválido'),
@@ -57,10 +58,10 @@ const Login = () =>{
         justifyContent="center" 
         h={['auto', 'auto', '100vh', '100vh']} 
         bgGradient={[
-            "linear(to-b, purple.800 35%, white 65%)",
-            "linear(to-b, purple.800 35%, white 65%)",
-            "linear(to-r, purple.800 65%, white 35%)",
-            "linear(to-tr, #1c15ac 55%, white 35%)"
+            `linear(to-b, ${theme.colors.blue['800']} 55%, white 35%)`,
+            `linear(to-b, ${theme.colors.blue['800']} 55%, white 35%)`,
+            `linear(to-tr, ${theme.colors.blue['800']} 55%, white 35%)`,
+            `linear(to-tr, ${theme.colors.blue['800']} 55%, white 35%)`
         ]} 
         color="white"
         >

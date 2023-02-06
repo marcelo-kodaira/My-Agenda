@@ -2,6 +2,7 @@ import { Box, Button, Grid, Heading, Text, VStack } from "@chakra-ui/react"
 import { FaEnvelope, FaLock, FaPhone, FaUser } from "react-icons/fa"
 import { Input as FormInput } from "../../components/Form"
 import {DeepMap, FieldError, FieldValues, UseFormRegister} from "react-hook-form"
+import { theme } from "../../styles/theme"
 
 interface SignUpData {
     email: string,
@@ -48,7 +49,7 @@ const SignUpForm = ({handleSignUp, errors, register, loading}: SignUpFormProps) 
             </VStack>
 
 
-            <Button mt="3" isLoading={loading} bg="purple.800" w="100%" h="60px" borderRadius="8px" _hover={{background: 'purple.900'}} color="white" type="submit">Cadastrar</Button>
+            <Button mt="3" isLoading={loading} bg={theme.colors.blue['800']} w="100%" h="60px" borderRadius="8px" _hover={{background: theme.colors.blue['900']}} color="white" type="submit">Cadastrar</Button>
 
         </Grid>
     )

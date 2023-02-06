@@ -10,6 +10,7 @@ import api from "../../services/api"
 import ModalSucess from "../../components/Modal/ModalSucess"
 import ModalError from "../../components/Modal/ModalError"
 import { useHistory } from "react-router-dom"
+import { theme } from "../../styles/theme"
 
 const signUpSchema = yup.object().shape({
     email: yup.string().required('Email obrigatório').email('Email inválido'),
@@ -87,10 +88,10 @@ const SignUp = () =>{
             justifyContent="center" 
             h={['auto', 'auto', '100vh', '100vh']} 
             bgGradient={[
-                "linear(to-b, #3E0AF9 35%, white 65%)",
-                "linear(to-b, #3E0AF9 35%, white 65%)",
-                "linear(to-l, #3E0AF9 65%, white 35%)",
-                "linear(to-bl, #3E0AF9 55%, white 35%)"
+                `linear(to-b, ${theme.colors.blue['800']} 55%, white 35%)`,
+                `linear(to-b, ${theme.colors.blue['800']} 55%, white 35%)`,
+                `linear(to-bl, ${theme.colors.blue['800']} 55%, white 35%)`,
+                `linear(to-bl, ${theme.colors.blue['800']} 55%, white 35%)`
             ]} 
             color="white"
             >
@@ -102,7 +103,7 @@ const SignUp = () =>{
                 {
                     isWideVersion ? (
                         <>
-                            <GoBackButton top="75" left="35"/>
+                            <GoBackButton top="75" left="55"/>
                             <SignUpForm errors={errors} handleSignUp={handleSubmit(handleSingUp)} loading={loading} register={register}/>
                             <SignUpInfo/>
                         </>

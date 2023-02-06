@@ -3,6 +3,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa"
 import { Input as FormInput } from "../../components/Form"
 import {DeepMap, FieldError, FieldValues, UseFormRegister} from "react-hook-form"
 import { useHistory } from "react-router-dom"
+import { theme } from "../../styles/theme"
 
 
 interface SignInData {
@@ -46,9 +47,10 @@ const LoginForm = ({handleSignIn, errors, register, loading}: LoginFormProps) =>
                         <FormInput  type="password" icon={FaLock} label="Senha"  placeholder="Digite sua senha" error={errors.senha} {...register("senha")}/>
 
                     <VStack mt="4" spacing="5">
-                        <Button isLoading={loading} bg="purple.800" w="100%" h="60px" borderRadius="8px" _hover={{background: 'purple.900'}} color="white" type="submit">Entrar</Button>
+                        <Button isLoading={loading} bg={theme.colors.blue['800']} w="100%" h="60px" borderRadius="8px" _hover={{background: theme.colors.blue['900']}} color="white" type="submit">Entrar</Button>
                         <Text color="gray.400">Ainda não possui uma conta?</Text>
-                        <Button onClick={() => history.push('/signup')}  bg="gray.100" w="100%" h="60px" borderRadius="8px" _hover={{background: 'gray.200'}} color="gray.300" >Cadastrar</Button>
+
+                        <Button onClick={() => history.push('/signup')}  bg="gray.400" w="100%" h="60px" borderRadius="8px" _hover={{background: 'gray.600'}} color="white" >Cadastrar</Button>
                     </VStack>
                 </Grid>
     )

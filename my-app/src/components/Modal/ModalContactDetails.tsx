@@ -1,10 +1,10 @@
-import {  Box, Button, Center, Flex, Heading, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, VStack } from "@chakra-ui/react";
-import { FaBox, FaCube, FaEnvelope, FaExclamation, FaPhoneAlt, FaTrash } from "react-icons/fa";
+import {  Center, Flex, Heading, HStack, Modal, ModalBody, ModalCloseButton, ModalContent,  ModalHeader, ModalOverlay, Text } from "@chakra-ui/react";
+import { FaCube, FaEnvelope,  FaPhoneAlt, FaTrash } from "react-icons/fa";
 import { useAuth } from "../../contexts/AuthContext";
-import { useTasks } from "../../contexts/TasksContext";
+import { useContacts} from "../../contexts/ContactsContext";
 import { theme } from "../../styles/theme";
 
-interface Task{
+interface Contact{
     id: string,
     nome: string,
     email: string,
@@ -13,19 +13,19 @@ interface Task{
     updatedAt: Date
 }
 
-interface ModalTaskDetailsProps {
+interface ModalContactDetailsProps {
     isOpen: boolean;
     onClose: () => void;
-    task: Task
+    contact: Contact
 }
 
-const ModalTaskDetails = ({ isOpen, onClose, task}: ModalTaskDetailsProps) =>{
+const ModalContactDetails = ({ isOpen, onClose, contact}: ModalContactDetailsProps) =>{
     
     const {token} = useAuth()
-    const {deleteTask} = useTasks()
+    const {deleteContact} = useContacts()
 
     const handleDelete = () =>{
-        deleteTask(task.id,token)
+        deleteContact(contact.id,token)
         onClose()
     }
     
@@ -58,16 +58,16 @@ const ModalTaskDetails = ({ isOpen, onClose, task}: ModalTaskDetailsProps) =>{
           <ModalBody>
 
 
-            <Heading as="h1" fontSize="2xl" mb="4">{task.nome}</Heading>
+            <Heading as="h1" fontSize="2xl" mb="4">{contact.nome}</Heading>
             
                 <HStack mb="4">
                         <FaPhoneAlt/>
-                        <Text>{task.telefone}</Text>
+                        <Text>{contact.telefone}</Text>
                     </HStack>
 
                     <HStack mb="4">
                         <FaEnvelope/>
-                        <Text>{task.email}</Text>
+                        <Text>{contact.email}</Text>
                     </HStack>
 
           </ModalBody>
@@ -78,4 +78,4 @@ const ModalTaskDetails = ({ isOpen, onClose, task}: ModalTaskDetailsProps) =>{
     )
 }
 
-export default ModalTaskDetails
+export default ModalContactDetails

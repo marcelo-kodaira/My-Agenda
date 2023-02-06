@@ -12,9 +12,9 @@ const Header = () =>{
     return(
         <Flex borderBottom="1px" borderBottomColor="#f5f5f5" paddingX="8" paddingY="2">
             <Flex align="center">
-                <Image src={Logo} alt="doit"/>
+                <Image src={Logo} alt="pessoas conectadas" boxSize="8"/>
                 <Heading ml="4" size="lg">
-                    Dashboard
+                    Contatos
                 </Heading>
             </Flex>
             <Center as="button" ml="auto" onClick={onToggle} fontSize="2rem">

@@ -1,58 +1,69 @@
-import { Box, Button, Center, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, VStack } from "@chakra-ui/react";
-import { FaClipboard} from "react-icons/fa";
+import {Button, Center, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, VStack } from "@chakra-ui/react";
+import { FaUserPlus} from "react-icons/fa";
 import { theme } from "../../styles/theme";
 import { Input } from "../Form";
 import { useForm} from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup'
 import { useAuth } from "../../contexts/AuthContext";
-import { useTasks } from "../../contexts/TasksContext";
+import { useContacts } from "../../contexts/ContactsContext";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from 'react-toastify';
 
 
-interface ModalCreateTaskProps {
+interface ModalCreateContactProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-interface createTaskData {
+interface createContactData {
   nome: string
   email: string
   telefone: string
 }
 
-interface taskData extends createTaskData{
+interface ContactData extends createContactData{
   id: string
   createdAt: Date
   updatedAt: Date
 }
 
-const createTaskSchema = yup.object().shape({
+const createContactSchema = yup.object().shape({
   nome: yup.string().required('Campo obrigatório'),
   email: yup.string().required('Campo obrigatório'),
   telefone: yup.string().required('Campo obrigatório').max(15)
 })
 
-const ModalCreateTask = ({ isOpen, onClose}: ModalCreateTaskProps) =>{
 
-  const {formState: {errors}, register, handleSubmit}= useForm<taskData>({
-    resolver: yupResolver(createTaskSchema)
+
+const ModalCreateContact = ({ isOpen, onClose}: ModalCreateContactProps) =>{
+
+  const {formState: {errors}, register, handleSubmit}= useForm<ContactData>({
+    resolver: yupResolver(createContactSchema)
   })
 
-  const {token,user} = useAuth()
-  const {createTask} = useTasks()
+  const {token} = useAuth()
+  const {createContact} = useContacts()
 
-  const handleCreateTask = (data:taskData) => {
-    createTask(data, token)
-    .then(res => onClose())
+  const notify = () => {
+    toast.error("Email já cadastrado!");
+  }
+
+  const handleCreateContact = (data:ContactData) => {
+    createContact(data, token)
+    .then(response => {
+        onClose()
+    }).catch(err => notify())
+    
   }
 
   return(
     <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent as="form" onSubmit={handleSubmit(handleCreateTask)} padding="2" bg="white" color="gray.800">
+        <ModalContent as="form" onSubmit={handleSubmit(handleCreateContact)} padding="2" bg="white" color="gray.800">
         <ModalHeader display="flex">
             <Center bg="purple.500"  w="30px" h="30px" borderRadius="5px">
-                <FaClipboard color={theme.colors.white}/>
+                <FaUserPlus color={theme.colors.white}/>
             </Center>
             <Text fontWeight="bold" ml="2">Adicionar</Text>
             </ModalHeader>
@@ -73,8 +84,9 @@ const ModalCreateTask = ({ isOpen, onClose}: ModalCreateTaskProps) =>{
             
           </ModalFooter>
         </ModalContent>
+        <ToastContainer />
       </Modal>
   )
 }
 
-export default ModalCreateTask
+export default ModalCreateContact

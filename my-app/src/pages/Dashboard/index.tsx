@@ -1,14 +1,14 @@
 import { useDisclosure } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import ModalTaskDetails from "../../components/Modal/ModalTaskDetails"
 import { useAuth } from "../../contexts/AuthContext"
-import { useTasks } from "../../contexts/TasksContext"
-import TaskList from "./TasksList"
-import FirstTask from "./FirstTask"
+import { useContacts} from "../../contexts/ContactsContext"
 import NotFound from "./NotFound"
-import ModalEditCard from "../../components/Modal/ModalEditCard"
+import ModalEditCard from "../../components/Modal/ModalEditContact"
+import ModalContactDetails from "../../components/Modal/ModalContactDetails"
+import FirstContact from "./FirstContact"
+import ContactList from "./ContactsList"
 
-interface Task{
+interface Contact{
     id: string,
     nome: string,
     email: string,
@@ -20,45 +20,44 @@ const Dashboard = () =>{
     
     const [loading,setLoading] = useState(true)
     const {token} = useAuth()
-    const {tasks, loadTasks, notFound, taskNotFound} = useTasks()
+    const {contacts, loadContacts, notFound, contactNotFound} = useContacts()
 
-    const[selectedTask, setSelectedTask] = useState<Task>({} as Task)
+    const[selectedContact, setSelectedContact] = useState<Contact>({} as Contact)
 
-    const {isOpen: isTaskDetailsOpen , onOpen: onTaskDetailsOpen, onClose: onTaskDetailsClose} = useDisclosure()
+    const {isOpen: isContactDetailsOpen , onOpen: onContactDetailsOpen, onClose: onContactDetailsClose} = useDisclosure()
 
-
-    const {isOpen: isEditCardOpen , onOpen: onEditCardOpen, onClose: onEditCardClose} = useDisclosure()
+    const {isOpen: isEditContactOpen , onOpen: onEditContactOpen, onClose: onEditContactClose} = useDisclosure()
     
 
     useEffect(() =>{
-        loadTasks(token)
+        loadContacts(token)
         .then(res => setLoading(false))
     },[])
 
-    const handleClickDetails = (task:Task) =>{
-        setSelectedTask(task);
-        onTaskDetailsOpen()
+    const handleClickDetails = (contact:Contact) =>{
+        setSelectedContact(contact);
+        onContactDetailsOpen()
     }
 
-    const handleClickEdit = (task:Task) =>{
-        setSelectedTask(task);
-        onEditCardOpen()
+    const handleClickEdit = (contact:Contact) =>{
+        setSelectedContact(contact);
+        onEditContactOpen()
     }
 
 
     if(notFound){
-        return <NotFound isTaskDetailsOpen={isTaskDetailsOpen} onTaskDetailsClose={onTaskDetailsClose} selectedTask={selectedTask} taskNotFound={taskNotFound}/>
+        return <NotFound isContactDetailsOpen={isContactDetailsOpen} onContactDetailsClose={onContactDetailsClose} selectedContact={selectedContact} contactNotFound={contactNotFound}/>
     }
 
     return(
         <>
-            <ModalTaskDetails isOpen={isTaskDetailsOpen} onClose={onTaskDetailsClose} task={selectedTask}/>
-            <ModalEditCard isOpen={isEditCardOpen} onClose={onEditCardClose} task={selectedTask}/>
+            <ModalContactDetails isOpen={isContactDetailsOpen} onClose={onContactDetailsClose} contact={selectedContact}/>
+            <ModalEditCard isOpen={isEditContactOpen} onClose={onEditContactClose} contact={selectedContact}/>
             {
-            !tasks.length && !loading ?
-            <FirstTask/>
+            !contacts.length && !loading ?
+            <FirstContact/>
             :   
-            <TaskList tasks={tasks} handleClickDetails={handleClickDetails}  handleClickEdit={handleClickEdit} loading={loading} />
+            <ContactList contacts={contacts} handleClickDetails={handleClickDetails}  handleClickEdit={handleClickEdit} loading={loading} />
             }
         </>
     )

@@ -1,9 +1,9 @@
 import { Box, Center, Heading, Skeleton, Stack, Text } from "@chakra-ui/react"
 import SearchBox from "../../components/Form/SearchBox"
 import Header from "../../components/Header"
-import ModalTaskDetails from "../../components/Modal/ModalTaskDetails"
+import ModalContactDetails from "../../components/Modal/ModalContactDetails"
 
-interface Task{
+interface Contact{
     id: string,
     nome: string,
     email: string,
@@ -13,24 +13,24 @@ interface Task{
 }
 
 interface NotFoundProps{
-    isTaskDetailsOpen: boolean
-    onTaskDetailsClose: () => void
-    selectedTask: Task
-    taskNotFound: string
+    isContactDetailsOpen: boolean
+    onContactDetailsClose: () => void
+    selectedContact: Contact
+    contactNotFound: string
 }
 
-const NotFound = ({isTaskDetailsOpen,onTaskDetailsClose,selectedTask,taskNotFound}:NotFoundProps) =>{
+const NotFound = ({isContactDetailsOpen,onContactDetailsClose,selectedContact,contactNotFound}:NotFoundProps) =>{
 
 
     return(
         <>
-            <ModalTaskDetails isOpen={isTaskDetailsOpen} onClose={onTaskDetailsClose} task={selectedTask}/>
+            <ModalContactDetails isOpen={isContactDetailsOpen} onClose={onContactDetailsClose} contact={selectedContact}/>
             <Box>
                 <Header/>
                 <SearchBox/>
                 <Center mt="4"  textAlign="center" display="flex" flexDir="column">
                     <Heading size="lg">Não encontramos resultados para:</Heading>
-                    <Text fontSize="xl" color="gray.300" fontWeight="bold">{taskNotFound}</Text>
+                    <Text fontSize="xl" color="gray.300" fontWeight="bold">{contactNotFound}</Text>
                     <Box w={["80%","40%"]} mt="6" padding="6" boxShadow="base" bg="white" >
                         <Stack>
                             <Skeleton w="80%" h="20px" startColor="gray.100" endColor="gray.200" borderRadius="20px"/>

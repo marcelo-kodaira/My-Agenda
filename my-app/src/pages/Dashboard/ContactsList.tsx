@@ -4,7 +4,7 @@ import SearchBox from "../../components/Form/SearchBox"
 import Header from "../../components/Header"
 import CardSkeleton from "../../components/Skeleton/CardSkeleton"
 
-interface Task{
+interface Contact{
     id: string,
     nome: string,
     email: string,
@@ -13,14 +13,14 @@ interface Task{
     updatedAt: Date
 }
 
-interface TaskListProps{
+interface ContactListProps{
     loading: boolean
-    tasks: Task[]
-    handleClickDetails: (task: Task) => void
-    handleClickEdit: (task: Task) => void
+    contacts: Contact[]
+    handleClickDetails: (contact: Contact) => void
+    handleClickEdit: (contact: Contact) => void
 }
 
-const TaskList = ({handleClickDetails,loading,tasks, handleClickEdit}:TaskListProps) =>(
+const ContactList = ({handleClickDetails,loading,contacts, handleClickEdit}:ContactListProps) =>(
     <Box>
                 <Header/>
                 <SearchBox/>
@@ -29,10 +29,10 @@ const TaskList = ({handleClickDetails,loading,tasks, handleClickEdit}:TaskListPr
                     loading? (
                     <CardSkeleton repeatCount={9} />
                     ):
-                    tasks.map(task => <Card onClickDetails={handleClickDetails} onClickEdit={handleClickEdit} key={task.id} task={task}/>)
+                    contacts.map(contact => <Card onClickDetails={handleClickDetails} onClickEdit={handleClickEdit} key={contact.id} contact={contact}/>)
                 }
                 </Grid>
     </Box>
 )
 
-export default TaskList
+export default ContactList
