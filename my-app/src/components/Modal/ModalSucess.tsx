@@ -25,22 +25,14 @@ const ModalSucess = ({ isOpen, onClose, buttonMessage, message, onClick, seconda
             <ModalCloseButton bg="green" color="white" _hover={{bg: "red.700"}}/>
 
           <ModalBody textAlign="center">
-            <Text>
-            <Box dangerouslySetInnerHTML={{
-                    __html: message,
-                }}/>
-            </Text>
+            <Text  mt="4" dangerouslySetInnerHTML={{__html: message}}/>
           </ModalBody>
 
           <ModalFooter flexDir="column">
             <Button  bg="purple.500" color="white" w="100%" h="60px" onClick={onClick} _hover={{bg: "purple.600"}}>
               {buttonMessage}
             </Button>
-            <Text textAlign="center" mt="4">
-                <Box dangerouslySetInnerHTML={{
-                    __html: secondaryText,
-                }}/>
-            </Text>
+            <Text textAlign="center" mt="4" dangerouslySetInnerHTML={{__html: secondaryText}}/>
           </ModalFooter>
         </ModalContent>
       </Modal>

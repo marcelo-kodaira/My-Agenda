@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup'
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../services/api";
+import { useCallback } from "react";
 
 
 interface ModalEditUserProps {
@@ -52,11 +53,17 @@ const ModalEditUser = ({ isOpen, onClose}: ModalEditUserProps) =>{
     if(!data.telefone){
       data.telefone = user.telefone
     }
-
     api.patch("/clients",data,{headers:{Authorization: `Bearer ${token}`}})
     .then(res => {
-        user.nome = res.data.nome
-        onClose()
+      const userUpdated = {
+        id: res.data.id,
+        nome: res.data.nome,
+        email: res.data.email,
+        telefone: res.data.telefone
+      }
+      user.nome = res.data.nome
+      localStorage.setItem('@MyAgenda:user', JSON.stringify(userUpdated))
+      onClose()
     })
     .catch(err => {
         console.log(err)

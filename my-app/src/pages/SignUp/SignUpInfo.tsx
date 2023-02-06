@@ -58,12 +58,8 @@ const SignUpInfo = () =>{
             ):
             (
                 <>
-                    
-            <Flex justifyContent="flex-end" gap="30px" mt="8">
-            <Box borderRadius="5px" bg="white" w="55px" h="50px" margin-left="50px" mb="4">
-                    <Center>
-                        <Image src={logo}/>
-                    </Center>
+            <Flex  mt="8">
+                <Box  h="50px"  mb="4">
                 </Box>
             </Flex>
                 </>

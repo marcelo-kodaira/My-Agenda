@@ -29,9 +29,7 @@ const ModalError = ({ isOpen, onClose, error, secondaryText}: ModalErrorProps) =
             <Button background="red.500" h="60px" color="white" w="100%" _hover={{bg: "red.600"}} onClick={onClose}>
               Tentar novamente
             </Button>
-            <Text textAlign="center" mt="4">
-              <Box dangerouslySetInnerHTML={{__html: secondaryText}}/>
-            </Text>
+              <Text textAlign="center" mt="4" dangerouslySetInnerHTML={{__html: secondaryText}}/>
           </ModalFooter>
         </ModalContent>
       </Modal>
