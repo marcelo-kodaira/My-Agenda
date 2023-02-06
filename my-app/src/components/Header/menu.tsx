@@ -3,6 +3,7 @@ import { useAuth } from "../../contexts/AuthContext"
 import {FiLogOut, FiSettings} from 'react-icons/fi'
 import { theme } from "../../styles/theme"
 import ModalEditUser from "../Modal/ModalEditUser"
+import React, { useState } from "react"
 
 interface MenuProps{
     isOpen: boolean,
@@ -13,11 +14,13 @@ interface MenuProps{
 const Menu = ({isOpen, onClose}: MenuProps) =>{
     const {isOpen: isModalEditUserOpen, onOpen: onModalEditUserOpen, onClose: onModalEditUserClose} = useDisclosure()
 
+    const [scrollBehavior, setScrollBehavior] = useState('inside')
+
     const {user,signOut} = useAuth()
 
     return(
         <>
-            <ModalEditUser isOpen={isModalEditUserOpen} onClose={onModalEditUserClose}/>
+            <ModalEditUser isOpen={isModalEditUserOpen} onClose={onModalEditUserClose} scrollBehavior={scrollBehavior}/>
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay mt={["13vh","8vh"]} />
                 <DrawerContent ml="auto" mt="80px" w={["450px","350px"]}>

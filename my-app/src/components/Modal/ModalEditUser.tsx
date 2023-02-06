@@ -7,12 +7,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup'
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../services/api";
-import { useCallback } from "react";
 
 
 interface ModalEditUserProps {
     isOpen: boolean
     onClose: () => void
+    scrollBehavior:  any
 }
 
 
@@ -32,7 +32,7 @@ const editUserSchema = yup.object().shape({
     telefone: yup.string()
 })
 
-const ModalEditUser = ({ isOpen, onClose}: ModalEditUserProps) =>{
+const ModalEditUser = ({ isOpen, onClose, scrollBehavior}: ModalEditUserProps) =>{
 
   const {formState: {errors}, register, handleSubmit}= useForm<EditUserData>({
     resolver: yupResolver(editUserSchema)
@@ -83,7 +83,7 @@ const ModalEditUser = ({ isOpen, onClose}: ModalEditUserProps) =>{
   }
 
   return(
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} scrollBehavior={scrollBehavior}>
         <ModalOverlay />
         <ModalContent as="form" onSubmit={handleSubmit(handleFditUser)} padding="2" bg="white" color="gray.800">
         <ModalHeader>

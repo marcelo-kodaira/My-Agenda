@@ -1,4 +1,4 @@
-import {  Button, Center, Heading, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, VStack } from "@chakra-ui/react";
+import {  Button, Center, Heading, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, RadioGroup, Stack, Text, VStack } from "@chakra-ui/react";
 import { FaUserEdit} from "react-icons/fa";
 import { theme } from "../../styles/theme";
 import { Input } from "../Form";
@@ -68,7 +68,11 @@ const ModalEditContact = ({ isOpen, onClose, contact}: ModalEditCardProps) =>{
     })
   }
 
+
   return(
+    <>
+
+  
     <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent as="form" onSubmit={handleSubmit(handleeditCard)} padding="2" bg="white" color="gray.800">
@@ -99,6 +103,7 @@ const ModalEditContact = ({ isOpen, onClose, contact}: ModalEditCardProps) =>{
           </ModalFooter>
         </ModalContent>
       </Modal>
+    </>
   )
 }
 
