@@ -16,5 +16,8 @@ Este sistema foi desenvolvido em Node.js utilizando as seguintes tecnologias:
 - YUP
 - Axios
 
-#Backend da aplicação
+# Deploy
+- Vercel
+
+# Backend da aplicação
 https://github.com/marcelo-kodaira/cadastro-clientes-backend
