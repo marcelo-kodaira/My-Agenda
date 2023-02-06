@@ -1,7 +1,8 @@
 # My Contacts
 
 ## Descrição
-Sistema desenvolvido utilizando React e Typescript que permite ao usuário adicionar, modificar e deletar contatos, pelo email e telefone
+Sistema desenvolvido utilizando React e Typescript que permite ao usuário adicionar, modificar e deletar contatos, pelo email e telefone.
+ O layout deste projeto é uma reimaginação do projeto doit https://github.com/marcelo-kodaira/do_it de minha autoria
 
 ## Tecnologias
 Este sistema foi desenvolvido em Node.js utilizando as seguintes tecnologias:
@@ -18,6 +19,7 @@ Este sistema foi desenvolvido em Node.js utilizando as seguintes tecnologias:
 
 # Deploy
 - Vercel
+https://contactlitst-marcelo-kodaira.vercel.app/
 
 # Backend da aplicação
 https://github.com/marcelo-kodaira/cadastro-clientes-backend
