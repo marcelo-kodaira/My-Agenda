@@ -2,7 +2,7 @@
 
 ## Descrição
 Sistema desenvolvido utilizando React e Typescript que permite ao usuário adicionar, modificar e deletar contatos, pelo email e telefone.
-O layout deste projeto foi baseado neste outro projeto https://github.com/marcelo-kodaira/do_it de minha autoria
+ O layout deste projeto foi baseado neste outro projeto https://github.com/marcelo-kodaira/do_it de minha autoria
 
 ## Tecnologias
 Este sistema foi desenvolvido em Node.js utilizando as seguintes tecnologias:
