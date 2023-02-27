@@ -20,9 +20,12 @@ Este sistema foi desenvolvido em Node.js utilizando as seguintes tecnologias:
 # Deploy
 - Vercel
 https://contactlitst-marcelo-kodaira.vercel.app/
+obs: Devido a limitações do plano grátis do Railway o Back end pode estar indisponível em determinadas datas.
 
 # Backend da aplicação
+
 https://github.com/marcelo-kodaira/cadastro-clientes-backend
+
 
 ## Instalação
 Para inciar este projeto, é necessário instalar as dependências, que serão utilizadas nos testes. Portanto utilize o comando abaixo para instalar tais dependências:
