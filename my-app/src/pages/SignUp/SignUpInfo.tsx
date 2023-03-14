@@ -49,7 +49,7 @@ const SignUpInfo = () =>{
                             </Center>
                             <Box ml="4">
                                 <Heading size="lg">Segurança</Heading>
-                                <Text>Seus contatos armazenados em uma <br/> plataforma segura</Text>
+                                <Text>Seus contatos em uma <br/> plataforma segura</Text>
                             </Box>
                         </Flex>
 

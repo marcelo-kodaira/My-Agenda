@@ -14,13 +14,13 @@ interface MenuProps{
 const Menu = ({isOpen, onClose}: MenuProps) =>{
     const {isOpen: isModalEditUserOpen, onOpen: onModalEditUserOpen, onClose: onModalEditUserClose} = useDisclosure()
 
-    const [scrollBehavior, setScrollBehavior] = useState('inside')
+    const [scrollBehavior, setScrollBehavior] = React.useState('outside')
 
     const {user,signOut} = useAuth()
 
     return(
         <>
-            <ModalEditUser isOpen={isModalEditUserOpen} onClose={onModalEditUserClose} scrollBehavior={scrollBehavior}/>
+            <ModalEditUser isOpen={isModalEditUserOpen} onClose={onModalEditUserClose} scrollBehavior={scrollBehavior} />
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay mt={["13vh","8vh"]} />
                 <DrawerContent ml="auto" mt="80px" w={["450px","350px"]}>

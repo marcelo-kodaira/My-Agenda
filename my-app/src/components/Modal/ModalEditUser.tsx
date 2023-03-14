@@ -9,6 +9,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import api from "../../services/api";
 
 
+
 interface ModalEditUserProps {
     isOpen: boolean
     onClose: () => void
@@ -115,6 +116,7 @@ const ModalEditUser = ({ isOpen, onClose, scrollBehavior}: ModalEditUserProps) =
 
           </ModalBody>
 
+            
           <ModalFooter flexDir="column">
             <Button type="submit"  bg="green" color="white" w="100%" h="60px" _hover={{bg: "darkgreen"}}>
               Confirmar alterações
@@ -123,7 +125,6 @@ const ModalEditUser = ({ isOpen, onClose, scrollBehavior}: ModalEditUserProps) =
             <Button mt="4" type="submit" onClick={handleDeletetUser}   bg="red" color="white" w="100%" h="60px" _hover={{bg: "darkred"}}>
               Deletar conta
             </Button>
-            
           </ModalFooter>
         </ModalContent>
       </Modal>
