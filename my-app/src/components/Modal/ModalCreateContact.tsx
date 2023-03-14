@@ -79,7 +79,7 @@ const ModalCreateContact = ({ isOpen, onClose}: ModalCreateContactProps) =>{
 
           <ModalFooter flexDir="column">
             <Button type="submit"  bg="purple.500" color="white" w="100%" h="60px" _hover={{bg: "purple.600"}}>
-              Adicionar Tarefa
+              Adicionar Contato
             </Button>
             
           </ModalFooter>
