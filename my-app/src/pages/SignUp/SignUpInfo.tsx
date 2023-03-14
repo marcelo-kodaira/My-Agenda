@@ -29,7 +29,7 @@ const SignUpInfo = () =>{
                             </Center>
                             <Box ml="4">
                                 <Heading size="lg">Agilidade</Heading>
-                                <Text>Agilize seus projetos com rapidez <br/> e muita performance</Text>
+                                <Text>Armazene seu contatos <br/>em um clique</Text>
                             </Box>
                         </Flex>
 
@@ -39,7 +39,7 @@ const SignUpInfo = () =>{
                             </Center>
                             <Box ml="4">
                                 <Heading size="lg">Simplicidade</Heading>
-                                <Text>Armazene seus contatos em uma <br/> interface altamente usual</Text>
+                                <Text>Controle seus contatos sem <br/> dores de cabeça</Text>
                             </Box>
                         </Flex>
 
@@ -49,7 +49,7 @@ const SignUpInfo = () =>{
                             </Center>
                             <Box ml="4">
                                 <Heading size="lg">Segurança</Heading>
-                                <Text>Armazene seus contatos em uma <br/> interface altamente usual</Text>
+                                <Text>Seus contatos armazenados em uma <br/> plataforma segura</Text>
                             </Box>
                         </Flex>
 
